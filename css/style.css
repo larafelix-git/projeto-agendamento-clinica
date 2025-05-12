@@ -1,0 +1,111 @@
+:root {
+  --azul-turquesa: #65c9d8;
+  --laranja-pessego: #f8aa7e;
+  --branco: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f4f8;
+  color: #333;
+}
+
+header {
+  background-color: var(--azul-turquesa);
+  color: var(--branco);
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+
+header img {
+  max-height: 80px;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.form-container {
+  background-color: var(--branco);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-container h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: var(--azul-turquesa);
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  background-color: var(--laranja-pessego);
+  color: var(--branco);
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #e08b5e;
+}
+
+footer {
+  background-color: #e0e0e0;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
+
+#google-calendar-link {
+  display: none;
+  text-align: center;
+  margin-top: 15px;
+  color: var(--azul-turquesa);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+input[type="date"].disponivel {
+  border: 2px solid green;
+}
+
+input[type="date"].indisponivel {
+  border: 2px solid red;
+}

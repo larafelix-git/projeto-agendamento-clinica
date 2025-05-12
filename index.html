@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AMANDA & ÍTALO ODONTOLOGIA ESPECIALIZADA</title>
+  <style>
+    :root {
+      --azul-turquesa: #65c9d8;
+      --laranja-pessego: #f8aa7e;
+      --branco: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f4f8;
+      color: #333;
+    }
+
+    header {
+      background-color: var(--azul-turquesa);
+      color: var(--branco);
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    header img {
+      max-height: 80px;
+      position: absolute;
+      top: 10px;
+      left: 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+      text-transform: uppercase;
+    }
+
+    .main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    .form-container {
+      background-color: var(--branco);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .form-container h2 {
+      margin-bottom: 20px;
+      text-align: center;
+      color: var(--azul-turquesa);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+      background-color: var(--laranja-pessego);
+      color: var(--branco);
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #e08b5e;
+    }
+
+    footer {
+      background-color: #e0e0e0;
+      text-align: center;
+      padding: 15px;
+      margin-top: 100px;
+    }
+
+    #google-calendar-link {
+      display: none;
+      text-align: center;
+      margin-top: 15px;
+      color: var(--azul-turquesa);
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    input[type="date"].disponivel {
+      border: 2px solid green;
+    }
+
+    input[type="date"].indisponivel {
+      border: 2px solid red;
+    }
+
+    /* Adicionando estilo para a mensagem de agendamento */
+    #mensagem-agendamento {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <img src="assets/images/image.png" alt="Logo da Clínica" />
+    <h1>CLÍNICA AMANDA & ÍTALO</h1>
+    <p>Odontologia Especializada</p>
+  </header>
+
+  <section class="main">
+    <div class="form-container">
+      <h2>AGENDE SUA CONSULTA</h2>
+      <form id="consulta-form">
+        <label for="nome">Nome completo:</label>
+        <input type="text" id="nome" name="nome" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="telefone">Telefone:</label>
+        <input type="tel" id="telefone" name="telefone" required />
+
+        <label for="especialidade">Especialidade:</label>
+        <select id="especialidade" name="especialidade">
+          <option value="clinico">Dr Italo Sarto - Periodontista e Implantodontista</option>
+          <option value="ortodontia">Dra Amanda Vasconcelos - Odontopediatra e Ortodontista</option>
+        </select>
+
+        <label for="data">Data disponível:</label>
+        <select id="data" name="data" required>
+          <option value="">Selecione uma data</option>
+          <option value="2025-05-15">15 de Junho de 2025</option>
+          <option value="2025-05-17">17 de Junho de 2025</option>
+          <option value="2025-05-20">20 de Junho de 2025</option>
+          <option value="2025-05-22">22 de Junho de 2025</option>
+        </select>
+
+        <label for="mensagem">Observações:</label>
+        <textarea id="mensagem" name="mensagem" rows="3" placeholder="Descreva sintomas ou dúvidas..."></textarea>
+
+        <button type="submit">Confirmar Consulta</button>
+      </form>
+
+      <!-- Mensagem de confirmação de agendamento -->
+      <div id="mensagem-agendamento">
+        SEU AGENDAMENTO FOI REALIZADO!
+      </div>
+
+      <a href="#" id="google-calendar-link" target="_blank">Adicionar ao Google Agenda</a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 AMANDA & ÍTALO ODONTOLOGIA ESPECIALIZADA - Todos os direitos reservados
+  </footer>
+
+  <script>
+    const datasDisponiveis = ['2025-05-15', '2025-05-17', '2025-05-20', '2025-05-22'];
+    const campoData = document.getElementById('data');
+
+    campoData.addEventListener('change', () => {
+      if (datasDisponiveis.includes(campoData.value)) {
+        campoData.classList.add('disponivel');
+        campoData.classList.remove('indisponivel');
+      } else {
+        campoData.classList.add('indisponivel');
+        campoData.classList.remove('disponivel');
+      }
+    });
+
+    document.getElementById("consulta-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const nome = document.getElementById("nome").value;
+      const data = document.getElementById("data").value;
+      const especialidade = document.getElementById("especialidade").options[document.getElementById("especialidade").selectedIndex].text;
+      const mensagem = document.getElementById("mensagem").value;
+
+      const dataInicio = new Date(data + "T09:00:00");
+      const dataFim = new Date(data + "T10:00:00");
+
+      const formatarData = d => d.toISOString().replace(/[-:]|\.\d{3}/g, "");
+
+      const link = `https://www.google.com/calendar/render?action=TEMPLATE&text=Consulta com ${especialidade}&dates=${formatarData(dataInicio)}/${formatarData(dataFim)}&details=${encodeURIComponent(mensagem)}&location=Clínica AMANDA E ÍTALO ODONTOLOGIA ESPECIALIZADA&sf=true&output=xml`;
+
+      const calendarLink = document.getElementById("google-calendar-link");
+      calendarLink.href = link;
+      calendarLink.style.display = "block";
+      calendarLink.scrollIntoView({ behavior: "smooth" });
+
+      // Exibir a mensagem de agendamento realizado
+      const mensagemAgendamento = document.getElementById("mensagem-agendamento");
+      mensagemAgendamento.style.display = "block";  // Torna a mensagem visível
+    });
+  </script>
+
+</body>
+
+</html>
