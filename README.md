@@ -1,5 +1,5 @@
 🦷 Sistema de Agendamento para Clínica Odontológica - PROTÓTIPO
-Este projeto foi desenvolvido como parte da disciplina de Ideação para Soluções Tecnológicas do curso de Análise e Desenvolvimento de Sistemas. O protótipo criado visa solucionar a ausência de um sistema de agendamento em uma clínica odontológica, oferecendo uma solução simples e eficiente com HTML, CSS e JavaScript.
+Este projeto foi desenvolvido como parte da disciplina de Ideação para Soluções Tecnológicas, pelos alunos do grupo 7 do curso de Análise e Desenvolvimento de Sistemas. O protótipo criado visa solucionar a ausência de um sistema de agendamento em uma clínica odontológica, oferecendo uma solução simples e eficiente com HTML, CSS e JavaScript.
 
 🔧 Funcionalidades principais:
 - Coleta de dados do paciente: Formulário simples para inserir informações essenciais.
